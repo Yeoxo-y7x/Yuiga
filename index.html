@@ -565,38 +565,38 @@
 
     <script>
         // ============================================================
-        // CONFIGURATION DES OFFRES
+        // CONFIGURATION DES OFFRES AVEC €
         // ============================================================
         const shopItems = [{
             id: 'contribe',
             name: '⚡ Contributeur',
             desc: 'Contribuer au projet + Protection',
-            price: 5.00€
+            price: '5.00 €'
         }, {
             id: 'perm6',
             name: '🔥 Perm 6',
             desc: 'Permission 6 / Chef Gestion',
-            price: 10.00€
+            price: '10.00 €'
         }, {
             id: 'permto',
             name: '👑 Perm TO',
             desc: 'Permission To',
-            price: 20.00€
+            price: '20.00 €'
         }, {
             id: 'permjuge',
             name: '⚖️ Perm Juge',
             desc: 'Permission Juge',
-            price: 15.00€
+            price: '15.00 €'
         }, {
             id: 'permban',
             name: '🔨 Perm Ban',
             desc: 'Permission Ban',
-            price: 25.00€
+            price: '25.00 €'
         }, {
             id: 'crown',
             name: '👑 Crown',
             desc: 'Permission Crown',
-            price: 50.00€
+            price: '50.00 €'
         }];
 
         // ============================================================
@@ -623,8 +623,8 @@
                         <span class="desc">${item.desc}</span>
                     </div>
                     <div class="right">
-                        <span class="price">${item.price.toFixed(2)} LTC</span>
-                        <button class="buy-btn" onclick="buyItem('${item.id}', ${item.price})">Acheter</button>
+                        <span class="price">${item.price}</span>
+                        <button class="buy-btn" onclick="buyItem('${item.id}', '${item.price}')">Acheter</button>
                     </div>
                 `;
                 container.appendChild(div);
@@ -636,8 +636,8 @@
         // ============================================================
         function buyItem(id, price) {
             const address = document.getElementById('cryptoAddress').textContent;
-            alert(`🛒 Achat de ${id}\n\n💰 Envoie exactement ${price.toFixed(2)} LTC à :\n${address}\n\n📩 Après avoir payer, veuillez mp @clhistoireduneguerre sur Discord.`);
-            showToast('🛒 Achat initié', `Envoie ${price.toFixed(2)} LTC à l'adresse indiquée puis mp @clhistoireduneguerre`);
+            alert(`🛒 Achat de ${id}\n\n💰 Envoie exactement ${price} en LTC à :\n${address}\n\n📩 Après avoir payer, veuillez mp @clhistoireduneguerre sur Discord.`);
+            showToast('🛒 Achat initié', `Envoie ${price} en LTC à l'adresse indiquée puis mp @clhistoireduneguerre`);
         }
 
         // ============================================================
