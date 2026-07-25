@@ -11,13 +11,11 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
             background: linear-gradient(135deg, #0a0a15, #1a1a2e, #16213e);
             color: #fff;
             min-height: 100vh;
         }
-
         header {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(15px);
@@ -30,16 +28,13 @@
             top: 0;
             z-index: 100;
         }
-
         .logo {
             font-size: 32px;
             font-weight: 900;
             background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcbff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
         }
-
         .discord-btn {
             background: #5865F2;
             padding: 12px 28px;
@@ -50,17 +45,14 @@
             transition: 0.3s;
             box-shadow: 0 4px 20px rgba(88, 101, 242, 0.5);
         }
-
         .discord-btn:hover {
             transform: scale(1.08);
             box-shadow: 0 6px 30px rgba(88, 101, 242, 0.7);
         }
-
         .hero {
             padding: 60px 40px 30px;
             text-align: center;
         }
-
         .hero h1 {
             font-size: 56px;
             font-weight: 900;
@@ -68,13 +60,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .hero p {
             color: #aaa;
             font-size: 18px;
             margin-top: 10px;
         }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -83,13 +73,11 @@
             grid-template-columns: 2fr 1fr;
             gap: 40px;
         }
-
         @media (max-width: 900px) {
             .container {
                 grid-template-columns: 1fr;
             }
         }
-
         .category-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -98,7 +86,6 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             margin-bottom: 30px;
         }
-
         .category-card h2 {
             font-size: 28px;
             margin-bottom: 20px;
@@ -106,7 +93,6 @@
             border-bottom: 2px solid rgba(255, 215, 61, 0.2);
             padding-bottom: 15px;
         }
-
         .shop-item {
             display: flex;
             justify-content: space-between;
@@ -115,39 +101,32 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             transition: 0.3s;
         }
-
         .shop-item:hover {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
         }
-
         .shop-item .info {
             display: flex;
             flex-direction: column;
         }
-
         .shop-item .name {
             font-size: 18px;
             font-weight: 700;
         }
-
         .shop-item .desc {
             font-size: 13px;
             color: #888;
         }
-
         .shop-item .right {
             display: flex;
             align-items: center;
             gap: 20px;
         }
-
         .shop-item .price {
             color: #4ade80;
             font-weight: 700;
             font-size: 18px;
         }
-
         .buy-btn {
             background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             border: none;
@@ -159,23 +138,19 @@
             transition: 0.3s;
             font-size: 14px;
         }
-
         .buy-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 0 25px rgba(255, 107, 107, 0.5);
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: #ddd;
         }
-
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -187,19 +162,16 @@
             font-size: 16px;
             transition: 0.3s;
         }
-
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #ff6b6b;
             box-shadow: 0 0 20px rgba(255, 107, 107, 0.15);
         }
-
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
-
         .submit-btn {
             background: linear-gradient(135deg, #6bcbff, #5865F2);
             border: none;
@@ -212,12 +184,10 @@
             transition: 0.3s;
             width: 100%;
         }
-
         .submit-btn:hover {
             transform: scale(1.02);
             box-shadow: 0 0 30px rgba(88, 101, 242, 0.4);
         }
-
         .crypto-info {
             background: rgba(0, 0, 0, 0.5);
             border-radius: 16px;
@@ -225,7 +195,6 @@
             margin-top: 20px;
             border-left: 4px solid #ffd93d;
         }
-
         .crypto-info .address {
             font-family: monospace;
             font-size: 18px;
@@ -236,7 +205,6 @@
             border-radius: 10px;
             margin: 10px 0;
         }
-
         .copy-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -246,11 +214,9 @@
             cursor: pointer;
             font-size: 12px;
         }
-
         .copy-btn:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-
         .toast {
             position: fixed;
             bottom: 30px;
@@ -264,12 +230,10 @@
             z-index: 999;
             max-width: 400px;
         }
-
         .toast.show {
             display: block;
             animation: slideUp 0.5s ease;
         }
-
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -280,18 +244,15 @@
                 transform: translateY(0);
             }
         }
-
         .toast .title {
             color: #4ade80;
             font-weight: 700;
             font-size: 18px;
         }
-
         .toast .message {
             color: #ccc;
             margin-top: 5px;
         }
-
         .footer {
             text-align: center;
             padding: 30px;
@@ -317,7 +278,6 @@
 
         <!-- COLONNE GAUCHE : SHOP -->
         <div>
-
             <div class="category-card">
                 <h2>🛒 Permissions & Rôles</h2>
                 <div id="shopList"></div>
@@ -330,12 +290,10 @@
                     <p style="color:#888; font-size:12px; margin-top:10px;">Après paiement, un email de confirmation sera envoyé à yuigasupport@protonmail.com</p>
                 </div>
             </div>
-
         </div>
 
         <!-- COLONNE DROITE : CANDIDATURE -->
         <div>
-
             <div class="category-card">
                 <h2>📝 Candidature</h2>
                 <form id="candidatureForm">
@@ -358,7 +316,6 @@
                     <button type="submit" class="submit-btn">📨 Envoyer ma candidature</button>
                 </form>
             </div>
-
         </div>
 
     </div>
@@ -439,7 +396,6 @@
             const address = document.getElementById('cryptoAddress').textContent;
             const message = `💰 Envoie exactement ${price.toFixed(2)} LTC à l'adresse :\n${address}\n\nAprès paiement, envoie un mail à yuigasupport@protonmail.com avec l'ID de transaction et ton pseudo Discord.`;
             showToast('🛒 Achat initié', message);
-            // Ouvre un popup avec les infos
             alert(`🛒 Achat de ${id}\n\n${message}`);
         }
 
@@ -451,7 +407,6 @@
             navigator.clipboard.writeText(address).then(() => {
                 showToast('📋 Copié !', 'Adresse LTC copiée dans le presse-papier');
             }).catch(() => {
-                // Fallback
                 const textArea = document.createElement('textarea');
                 textArea.value = address;
                 document.body.appendChild(textArea);
@@ -478,7 +433,6 @@
                 return;
             }
 
-            // Construction du contenu du mail
             const subject = encodeURIComponent('Candidature Discord - ' + pseudo);
             const body = encodeURIComponent(
                 `📝 Nouvelle candidature\n\n` +
@@ -489,12 +443,9 @@
                 `📅 Envoyé le : ${new Date().toLocaleString()}`
             );
 
-            // Envoi vers l'email via mailto (ouvre le client mail par défaut)
             window.location.href = `mailto:yuigasupport@protonmail.com?subject=${subject}&body=${body}`;
 
             showToast('✅ Candidature envoyée !', 'Un email a été ouvert pour envoyer ta candidature à yuigasupport@protonmail.com');
-
-            // Reset du formulaire
             this.reset();
         });
 
@@ -517,7 +468,7 @@
         // ============================================================
         renderShop();
 
-        console.log('🔥 Support : https://discord.gg/FfdBJWk8wD ');
+        console.log('🔥 DarkGPT a codé ce site - Modifie shopItems pour changer les prix');
         console.log('🏦 Adresse LTC : LPJBixFJ52ytDF9gfTmwktbr4cX3gPVabV');
     </script>
 
