@@ -214,6 +214,19 @@
             border-radius: 12px;
             margin: 10px 0;
         }
+        .crypto-info .contact-info {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 15px;
+            color: #0a4a6a;
+            border: 2px dashed #2b9ace;
+        }
+        .crypto-info .contact-info strong {
+            color: #1a7a9e;
+        }
         .copy-btn {
             background: rgba(43, 154, 206, 0.2);
             border: 2px solid rgba(43, 154, 206, 0.3);
@@ -348,6 +361,12 @@
             padding: 15px 20px;
             margin-bottom: 15px;
             border-left: 5px solid #2b9ace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .candidature-item .content {
+            flex: 1;
         }
         .candidature-item strong {
             color: #0a4a6a;
@@ -355,6 +374,23 @@
         .candidature-item .date {
             color: #3a6a7a;
             font-size: 12px;
+        }
+        .candidature-item .delete-btn {
+            background: #e74c3c;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 13px;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+        .candidature-item .delete-btn:hover {
+            background: #c0392b;
+            transform: scale(1.05);
         }
         .empty-state {
             text-align: center;
@@ -458,7 +494,10 @@
                     <p style="color:#1a4a5a; font-size:14px; margin:8px 0;">Envoie le montant exact à l'adresse ci-dessous</p>
                     <div class="address" id="cryptoAddress">LPJBixFJ52ytDF9gfTmwktbr4cX3gPVabV</div>
                     <button class="copy-btn" onclick="copyAddress()">📋 Copier l'adresse</button>
-                    <p style="color:#3a6a7a; font-size:12px; margin-top:10px;">Après paiement, tu seras contacté sur Discord</p>
+                    
+                    <div class="contact-info">
+                        📩 Après avoir payer, veuillez mp <strong>@clhistoireduneguerre</strong> sur Discord
+                    </div>
                 </div>
             </div>
         </div>
@@ -529,35 +568,35 @@
         // CONFIGURATION DES OFFRES
         // ============================================================
         const shopItems = [{
-            id: 'perm5',
-            name: '⚡ Perm 5',
-            desc: 'Accès aux salons modérés',
-            price: 5.00
+            id: 'contribe',
+            name: '⚡ Contributeur',
+            desc: 'Contribuer au projet + Protection',
+            price: 5.00€
         }, {
             id: 'perm6',
             name: '🔥 Perm 6',
-            desc: 'Accès aux salons VIP',
-            price: 10.00
+            desc: 'Permission 6 / Chef Gestion',
+            price: 10.00€
         }, {
             id: 'permto',
             name: '👑 Perm TO',
-            desc: 'Team Organisation - Gère les events',
-            price: 20.00
+            desc: 'Permission To',
+            price: 20.00€
         }, {
             id: 'permjuge',
             name: '⚖️ Perm Juge',
-            desc: 'Résout les conflits, donne des sanctions',
-            price: 15.00
+            desc: 'Permission Juge',
+            price: 15.00€
         }, {
             id: 'permban',
             name: '🔨 Perm Ban',
-            desc: 'Bannir les membres indésirables',
-            price: 25.00
+            desc: 'Permission ban',
+            price: 25.00€
         }, {
             id: 'crown',
             name: '👑 Crown',
-            desc: 'Rôle prestige avec couleur personnalisée',
-            price: 50.00
+            desc: 'Permission Crown',
+            price: 50.00€
         }];
 
         // ============================================================
@@ -597,8 +636,8 @@
         // ============================================================
         function buyItem(id, price) {
             const address = document.getElementById('cryptoAddress').textContent;
-            alert(`🛒 Achat de ${id}\n\n💰 Envoie exactement ${price.toFixed(2)} LTC à :\n${address}\n\nAprès paiement, tu seras contacté sur Discord.`);
-            showToast('🛒 Achat initié', `Envoie ${price.toFixed(2)} LTC à l'adresse indiquée`);
+            alert(`🛒 Achat de ${id}\n\n💰 Envoie exactement ${price.toFixed(2)} LTC à :\n${address}\n\n📩 Après avoir payer, veuillez mp @clhistoireduneguerre sur Discord.`);
+            showToast('🛒 Achat initié', `Envoie ${price.toFixed(2)} LTC à l'adresse indiquée puis mp @clhistoireduneguerre`);
         }
 
         // ============================================================
@@ -679,6 +718,18 @@
         });
 
         // ============================================================
+        // SUPPRIMER UNE CANDIDATURE
+        // ============================================================
+        function deleteCandidature(id) {
+            if (confirm('🗑️ Supprimer cette candidature ?')) {
+                candidatures = candidatures.filter(c => c.id !== id);
+                saveCandidatures();
+                openModal();
+                showToast('🗑️ Supprimée', 'La candidature a été supprimée');
+            }
+        }
+
+        // ============================================================
         // MODAL DES CANDIDATURES
         // ============================================================
         function openModal() {
@@ -689,10 +740,13 @@
             } else {
                 list.innerHTML = candidatures.map(c => `
                     <div class="candidature-item">
-                        <strong>${c.pseudo}</strong> - ${c.age} ans<br>
-                        <span style="color:#1a4a5a;">💬 ${c.motivation}</span><br>
-                        <span style="color:#3a6a7a;">📌 Expérience: ${c.experience}</span><br>
-                        <span class="date">📅 ${c.date}</span>
+                        <div class="content">
+                            <strong>${c.pseudo}</strong> - ${c.age} ans<br>
+                            <span style="color:#1a4a5a;">💬 ${c.motivation}</span><br>
+                            <span style="color:#3a6a7a;">📌 Expérience: ${c.experience}</span><br>
+                            <span class="date">📅 ${c.date}</span>
+                        </div>
+                        <button class="delete-btn" onclick="deleteCandidature(${c.id})">🗑️ Supprimer</button>
                     </div>
                 `).join('');
             }
@@ -741,6 +795,7 @@
 
         console.log('🌊 YUIGA - Code: Yuigasupport123');
         console.log('🏦 LTC: LPJBixFJ52ytDF9gfTmwktbr4cX3gPVabV');
+        console.log('📩 Mp @clhistoireduneguerre après paiement');
     </script>
 
 </body>
